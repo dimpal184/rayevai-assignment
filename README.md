@@ -1,74 +1,76 @@
-Rayeva World AI Backend 🌿
-A Node.js and Express-based backend built to automate product analysis and business communications for Rayeva World. This system integrates the Gemini 3 Flash AI model to provide intelligent categorization and professional proposal writing.
+# Rayeva World AI Backend 🌿
 
-🚀 Key Features
-AI-Powered Product Categorization: Analyzes product names and descriptions to generate SEO tags, primary/sub-categories, and sustainability filters in structured JSON format.
+A Node.js & Express backend designed for Rayeva World to automate product categorization and B2B proposal generation using the **Gemini 3 Flash** AI model.
 
-Automated B2B Proposal Generation: Creates professional wholesale email drafts based on specific product sustainability highlights.
+## 🚀 Features
+* **AI Category Analyzer**: Automatically generates primary/sub-categories, SEO tags, and sustainability filters based on product descriptions.
+* **B2B Proposal Generator**: Drafts professional, eco-conscious wholesale email proposals for clients.
+* **MongoDB Integration**: All AI-generated responses are logged and stored for future reference.
 
-Persistent Logging: Stores every AI generation in MongoDB (CategoryLogs and ProposalLogs) for auditing and history tracking.
+## 🛠️ Tech Stack
+* **Backend**: Node.js, Express.js
+* **AI**: Google Gemini 3 Flash (via `@google/generative-ai`)
+* **Database**: MongoDB (Mongoose)
+* **Testing**: Thunder Client / Postman
 
-🛠️ Tech Stack
-Runtime: Node.js
+## 📥 Installation
 
-Framework: Express.js
-
-AI Model: Google Gemini 3 Flash
-
-Database: MongoDB via Mongoose
-
-📥 Setup and Installation
-Clone the Repository:
-
-Bash
-git clone <your-repository-url>
-cd server
-Install Dependencies:
+1. **Clone the repository**:
+   ```bash
+   git clone <your-repo-link>
+   cd rayevai-assignment/server
+Install dependencies:
 
 Bash
 npm install
-Configure Environment Variables:
-Create a .env file in the root folder and add your credentials:
+Environment Variables:
+Create a .env file in the root directory and add:
 
 Code snippet
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
-GEMINI_API_KEY=your_google_api_key
-Run the Server:
+GEMINI_API_KEY=your_google_gemini_api_key
+Start the server:
 
 Bash
 node server.js
 🔌 API Endpoints
-1. Category Analyzer
-Route: POST /api/ai/category
+1. Create Category Data
+Endpoint: POST /api/ai/category
 
-Description: Analyzes product details and returns SEO and category data.
-
-Sample Payload:
+Body (JSON):
 
 JSON
 {
   "name": "Bamboo Straws",
-  "description": "Eco-friendly reusable straws."
+  "description": "Reusable and biodegradable straws."
 }
-2. Proposal Generator
-Route: POST /api/ai/proposal
+2. Create B2B Proposal
+Endpoint: POST /api/ai/proposal
 
-Description: Generates a professional B2B email proposal.
-
-Sample Payload:
+Body (JSON):
 
 JSON
 {
-  "productName": "Recycled Notebook",
-  "sustainabilityFilters": ["plastic-free", "recycled"]
+  "productName": "Recycled Notebooks",
+  "sustainabilityFilters": ["recycled", "plastic-free"]
 }
-📂 Project Structure
-Controllers/: Handles incoming requests and orchestrates the AI and Database logic.
+📂 Folder Structure
+models/: Mongoose schemas for data persistence.
 
-models/: Defines the Mongoose schemas for Category and Proposal logs.
+routes/: API endpoint definitions.
 
-routes/: Manages the API endpoints and routing logic.
+Controllers/: Logic for handling requests and responses.
 
-services/: Encapsulates the communication with the Gemini AI model.
+services/: AI service wrapper for Gemini API integration.
 
+
+---
+
+
+
+### **Final Checklist before submission:**
+* **Check `.gitignore`**: Make sure it includes `.env` so you don't accidentally leak your API key on GitHub.
+* **Screenshot your success**: Keep those Thunder Client screenshots you showed me; they are great proof that your code works!
+
+**Is there anything else you need help with before you turn this in?**
